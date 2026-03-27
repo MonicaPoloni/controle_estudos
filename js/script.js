@@ -124,8 +124,12 @@ function excluirDisciplina(index) {
 }
 
 // Busca disciplina
-inputBusca.addEventListener("input", function () {
-    renderizarDisciplinas();
+document.addEventListener("DOMContentLoaded", function () {
+    const inputBusca = document.getElementById("searchInput");
+
+    inputBusca.addEventListener("input", function () {
+        renderizarDisciplinas();
+    });
 });
 
 // Inicialização do sistema
