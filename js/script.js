@@ -14,17 +14,27 @@ function salvarDados() {
 function renderizarDisciplinas() {
     list.innerHTML = "";
 
+    const termoBusca = inputBusca.value.toLowerCase().trim();
+
+    const disciplinasFiltradas = listaDisciplinas.filter(function (disciplina) {
+        return disciplina.nome.toLowerCase().includes(termoBusca);
+    });
+
     if (listaDisciplinas.length === 0) {
         list.innerHTML = "<p class='empty'>Nenhuma disciplina cadastrada.</p>";
         return;
     }
 
-    const termo = inputBusca.value.toLowerCase();
+    if (disciplinasFiltradas.length === 0) {
+        list.innerHTML = "<p class='empty'>Nenhuma disciplina encontrada.</p>";
+        return;
+    }
 
-listaDisciplinas
-    .filter(d => d.nome.toLowerCase().includes(termo))
-    .forEach((disciplina, index) => {
+    disciplinasFiltradas.forEach(function (disciplina) {
         const percentual = ((disciplina.estudado / disciplina.cargaHoraria) * 100).toFixed(1);
+
+        // Pega o índice original da disciplina dentro da lista completa
+        const indiceOriginal = listaDisciplinas.indexOf(disciplina);
 
         const div = document.createElement("div");
         div.className = "disciplina";
@@ -39,12 +49,12 @@ listaDisciplinas
                 <div class="progress-bar" style="width:${percentual}%">${percentual}%</div>
             </div>
 
-            <input type="number" placeholder="Adicionar horas" id="horas-${index}" min="1">
+            <input type="number" placeholder="Adicionar horas" id="horas-${indiceOriginal}" min="1">
 
             <div class="actions">
-                <button onclick="adicionarHoras(${index})">Registrar Horas</button>
-                <button onclick="editarDisciplina(${index})">Editar</button>
-                <button onclick="excluirDisciplina(${index})">Excluir</button>
+                <button onclick="adicionarHoras(${indiceOriginal})">Registrar Horas</button>
+                <button onclick="editarDisciplina(${indiceOriginal})">Editar</button>
+                <button onclick="excluirDisciplina(${indiceOriginal})">Excluir</button>
             </div>
         `;
 
@@ -53,7 +63,7 @@ listaDisciplinas
 }
 
 // Evento de cadastro
-form.addEventListener("submit", function(e) {
+form.addEventListener("submit", function (e) {
     e.preventDefault();
 
     const nome = document.getElementById("name").value.trim();
@@ -113,8 +123,8 @@ function excluirDisciplina(index) {
     renderizarDisciplinas();
 }
 
-//Busca disciplina
-inputBusca.addEventListener("input", function() {
+// Busca disciplina
+inputBusca.addEventListener("input", function () {
     renderizarDisciplinas();
 });
 
