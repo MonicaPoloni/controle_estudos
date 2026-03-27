@@ -1,6 +1,7 @@
 // Recupera as disciplinas salvas no navegador
 let listaDisciplinas = JSON.parse(localStorage.getItem("disciplinas")) || [];
 
+const inputBusca = document.getElementById("searchInput");
 const form = document.getElementById("disciplineForm");
 const list = document.getElementById("disciplineList");
 
@@ -18,7 +19,11 @@ function renderizarDisciplinas() {
         return;
     }
 
-    listaDisciplinas.forEach((disciplina, index) => {
+    const termo = inputBusca.value.toLowerCase();
+
+listaDisciplinas
+    .filter(d => d.nome.toLowerCase().includes(termo))
+    .forEach((disciplina, index) => {
         const percentual = ((disciplina.estudado / disciplina.cargaHoraria) * 100).toFixed(1);
 
         const div = document.createElement("div");
@@ -107,6 +112,11 @@ function excluirDisciplina(index) {
     salvarDados();
     renderizarDisciplinas();
 }
+
+//Busca disciplina
+inputBusca.addEventListener("input", function() {
+    renderizarDisciplinas();
+});
 
 // Inicialização do sistema
 renderizarDisciplinas();
