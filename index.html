@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Controle de Estudos</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<div class="container">
+    <h1>Controle de Estudos</h1>
+
+    <!-- Cadastro das disciplinas -->
+    <form id="disciplineForm">
+        <input type="text" id="name" placeholder="Nome da disciplina" required>
+        <input type="text" id="teacher" placeholder="Professor responsável" required>
+        <input type="number" id="workload" placeholder="Carga horária total" required>
+        <select id="area" required>
+            <option value="">Selecione a área</option>
+            <option value="Exatas">Exatas</option>
+            <option value="Humanas">Humanas</option>
+            <option value="Biológicas">Biológicas</option>
+            <option value="Tecnologia">Tecnologia</option>
+        </select>
+        <button type="submit">Cadastrar Disciplina</button>
+    </form>
+
+    <div id="disciplineList"></div>
+</div>
+<footer class="footer">
+    <p>© 2026 - Feito por Monica Poloni</p>
+</footer>
+
+<script src="/js/script.js"></script>
+</body>
+</html>

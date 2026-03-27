@@ -1,0 +1,187 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #dbeafe, #eff6ff, #e0f2fe);
+    min-height: 100vh;
+    color: #1f2937;
+}
+
+.header {
+    background: linear-gradient(135deg, #2563eb, #1d4ed8, #0ea5e9);
+    color: white;
+    text-align: center;
+    padding: 30px 20px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+.header h1 {
+    font-size: 2rem;
+    margin-bottom: 8px;
+}
+
+.header p {
+    font-size: 1rem;
+    opacity: 0.95;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 0 15px;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.95);
+    padding: 25px;
+    border-radius: 18px;
+    box-shadow: 0 10px 25px rgba(37, 99, 235, 0.12);
+    backdrop-filter: blur(4px);
+    border: 1px solid rgba(255, 255, 255, 0.6);
+}
+
+.card h2 {
+    margin-bottom: 18px;
+    color: #1d4ed8;
+    font-size: 1.4rem;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+input,
+select,
+button {
+    padding: 12px;
+    font-size: 15px;
+    border-radius: 10px;
+}
+
+input,
+select {
+    border: 1px solid #cbd5e1;
+    background: #f8fafc;
+    transition: 0.3s;
+}
+
+input:focus,
+select:focus {
+    outline: none;
+    border-color: #2563eb;
+    box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.15);
+    background: white;
+}
+
+button {
+    cursor: pointer;
+    background: linear-gradient(135deg, #2563eb, #0ea5e9);
+    color: white;
+    border: none;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(37, 99, 235, 0.25);
+}
+
+.disciplina {
+    background: linear-gradient(180deg, #ffffff, #f8fbff);
+    border: 1px solid #dbeafe;
+    padding: 18px;
+    border-radius: 14px;
+    margin-bottom: 15px;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.06);
+    transition: 0.3s;
+}
+
+.disciplina:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(14, 165, 233, 0.12);
+}
+
+.disciplina h3 {
+    color: #0f172a;
+    margin-bottom: 10px;
+}
+
+.disciplina p {
+    margin-bottom: 6px;
+    line-height: 1.5;
+}
+
+.actions {
+    margin-top: 12px;
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.actions button {
+    flex: 1;
+    min-width: 120px;
+}
+
+.progress {
+    background: #dbeafe;
+    border-radius: 999px;
+    overflow: hidden;
+    margin: 12px 0;
+    height: 22px;
+}
+
+.progress-bar {
+    background: linear-gradient(90deg, #22c55e, #16a34a, #15803d);
+    height: 100%;
+    text-align: center;
+    color: white;
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 22px;
+    border-radius: 999px;
+}
+
+.empty {
+    text-align: center;
+    color: #64748b;
+    font-size: 1rem;
+    padding: 20px 0;
+}
+
+.footer {
+    text-align: center;
+    padding: 18px;
+    background: linear-gradient(135deg, #1e3a8a, #2563eb);
+    color: white;
+    margin-top: 30px;
+    font-size: 0.95rem;
+}
+
+@media (max-width: 600px) {
+    .header h1 {
+        font-size: 1.6rem;
+    }
+
+    .card {
+        padding: 18px;
+    }
+
+    .actions {
+        flex-direction: column;
+    }
+
+    .actions button {
+        width: 100%;
+    }
+}
